@@ -5,7 +5,8 @@
 
 ## 1. Dự án & mục tiêu
 - Dự án: website portfolio song ngữ EN/JP cho nhà tuyển dụng Nhật (Thanh, sinh viên 専門学校, Frontend + UI/UX).
-- Stack: HTML, CSS (BEM, Flexbox/Grid), JavaScript thuần (fetch, array methods), VS Code. Tooling: Node 20+.
+- Stack: HTML, CSS (BEM, Flexbox/Grid), JavaScript thuần (fetch, array methods), VS Code. Tooling: Node 20+ (máy hiện tại: v24).
+- Môi trường: Windows + PowerShell (mọi lệnh viết cho PowerShell, không dùng `mkdir -p`, `touch`, `grep`, `&&`). GitHub chính: `sora-kill`, repo `https://github.com/sora-kill/portfolio`.
 - Mục tiêu 100%: site chạy tốt, kiểm chứng tự động, README + GitHub Profile song ngữ, CV link thật, không còn placeholder.
 - Vai trò: Thanh = bếp trưởng (chọn thực đơn, chịu trách nhiệm). AI = đầu bếp (thực thi, tự kiểm chứng, đưa bằng chứng).
 
@@ -51,9 +52,9 @@ portfolio/
 ## 5. Roadmap (đánh dấu [x] khi XONG và có bằng chứng)
 
 ### Phase 0 — Nền móng repo
-- [ ] **P0.1** Terminal: `mkdir portfolio && cd portfolio && git init -b main`
-- [ ] **P0.2** `node -v` (cần ≥ 20). `npm init -y`, mở `package.json` thêm `"type": "module"`.
-- [ ] **P0.3** Tạo `.gitignore`:
+- [x] **P0.1** Terminal: `mkdir portfolio; cd portfolio; git init -b main`
+- [x] **P0.2** `node -v` (cần ≥ 20). `npm init -y`, mở `package.json` thêm `"type": "module"`.
+- [x] **P0.3** Tạo `.gitignore`:
   ```
   node_modules/
   .lighthouseci/
@@ -63,13 +64,17 @@ portfolio/
   docs/evidence/*
   !docs/evidence/.gitkeep
   ```
-- [ ] **P0.4** `mkdir -p src/css src/js src/i18n src/assets tools tests/e2e tasks docs/evidence docs/prompts docs/daily docs/trends .github/workflows .github/ISSUE_TEMPLATE` rồi `touch docs/evidence/.gitkeep`
-- [ ] **P0.5** Đặt `CLAUDE.md` và `PROGRESS.md` ở thư mục gốc.
-- [ ] **P0.6** Tạo repo `portfolio` trên GitHub. `git remote add origin <url>`, `git add -A && git commit -m "chore: init"`, `git push -u origin main`.
+- [x] **P0.4** PowerShell:
+  ```powershell
+  New-Item -ItemType Directory -Force src/css,src/js,src/i18n,src/assets,tools,tests/e2e,tasks,docs/evidence,docs/prompts,docs/daily,docs/trends,.github/workflows,.github/ISSUE_TEMPLATE
+  New-Item docs/evidence/.gitkeep -ItemType File -Force
+  ```
+- [x] **P0.5** Đặt `CLAUDE.md` và `PROGRESS.md` ở thư mục gốc.
+- [x] **P0.6** Tạo repo `portfolio` trên GitHub. `git remote add origin <url>`, `git add -A && git commit -m "chore: init"`, `git push -u origin main`. Lỗi 403 = Windows đang nhớ tài khoản GitHub khác: xóa mục `git:https://github.com` trong Credential Manager rồi push lại.
 - **Xong khi:** repo trên GitHub có CLAUDE.md và PROGRESS.md.
 
 ### Phase 1 — Đưa site hiện tại vào cấu trúc
-- [ ] **P1.1** Chuyển `index.html` → `src/index.html`, `style.css` → `src/css/style.css`, `script.js` → `src/js/main.js`. Sửa đường dẫn `<link>`/`<script>` (script dùng `type="module"`). Commit `refactor: move site into src/`.
+- [ ] **P1.1** Chuyển `index.html` → `src/index.html`, `style.css` → `src/css/style.css`, `script.js` → `src/js/main.js`. Lệnh: `Move-Item <đường-dẫn-cũ>\index.html src\index.html` (tương tự `style.css` → `src\css\style.css`, `script.js` → `src\js\main.js`). Sửa đường dẫn `<link>`/`<script>` (script dùng `type="module"`). Commit `refactor: move site into src/`.
 - [ ] **P1.2** Tạo `src/css/tokens.css`: khai báo trong `:root` toàn bộ màu (`--color-bg`, `--color-text`, `--color-accent: #0057FF`...), spacing (`--space-1..8`), font (`--font-sans: 'Noto Sans JP', sans-serif`), radius, shadow. Trong `style.css` thay mọi giá trị hardcode bằng `var(--...)`. Thêm `<link>` tokens.css TRƯỚC style.css.
 - [ ] **P1.3** Rà class theo BEM (`block__element--modifier`). Nếu `style.css` >300 dòng, tách theo section.
 - [ ] **P1.4** i18n:
@@ -113,7 +118,7 @@ portfolio/
   }
   ```
 - [ ] **P2.4** `.htmlhintrc`: `{"tagname-lowercase":true,"attr-lowercase":true,"attr-value-double-quotes":true,"doctype-first":true,"id-unique":true,"alt-require":true,"title-require":true}`
-- [ ] **P2.5** `.prettierrc`: `{"singleQuote":true,"printWidth":100}`
+- [ ] **P2.5** `.prettierrc`: `{"singleQuote":true,"printWidth":100,"endOfLine":"auto"}`
 - [ ] **P2.6** `tools/i18n-check.mjs`:
   ```js
   import { readFileSync } from 'node:fs';
@@ -249,7 +254,7 @@ portfolio/
       steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
-          with: { node-version: 20, cache: npm }
+          with: { node-version: 24, cache: npm }
         - run: npm ci
         - run: npx playwright install --with-deps chromium
         - run: npm run verify
@@ -335,7 +340,7 @@ portfolio/
 ### Phase 10 — Hoàn thiện 100%
 - [ ] **P10.1** Lighthouse mobile: Performance ≥90, Accessibility 100, Best Practices ≥95, SEO ≥95. Axe 0 lỗi (EN + JP).
 - [ ] **P10.2** i18n khớp 100%; đọc lại bản JP (câu chữ lịch sự, thuật ngữ đúng chuẩn IT Nhật).
-- [ ] **P10.3** Không còn `TODO`/placeholder: `grep -rn "TODO\|placeholder" src` không ra kết quả.
+- [ ] **P10.3** Không còn `TODO`/placeholder: `Get-ChildItem src -Recurse -File | Select-String -Pattern "TODO|placeholder"` không ra kết quả.
 - [ ] **P10.4** `README.md` song ngữ cho repo portfolio (mô tả, stack, cách chạy, ảnh chụp).
 - [ ] **P10.5** Repo AnimeSky Shop có README chuẩn; ghim các repo tốt nhất trên GitHub.
 - [ ] **P10.6** Tạo repo `<username>/<username>` với Profile README song ngữ (EN/JP).
