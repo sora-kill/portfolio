@@ -1,0 +1,56 @@
+:root {
+  /* Color: brand */
+  --color-accent: #ffd400;
+  --color-accent-hover: #ffe14d;
+  --color-on-accent: #111111;
+
+  /* Color: dark surfaces (gaming style) */
+  --color-bg: #111111;
+  --color-surface: #1a1a1a;
+  --color-surface-raised: #242424;
+  --color-border: #333333;
+  --color-text: #ffffff;
+  --color-text-muted: #b3b3b3;
+
+  /* Color: light surfaces (readability) */
+  --color-bg-light: #ffffff;
+  --color-surface-light: #f4f4f4;
+  --color-border-light: #e0e0e0;
+  --color-text-on-light: #111111;
+  --color-text-muted-on-light: #555555;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Font */
+  --font-sans: "Roboto", "Noto Sans JP", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-size-2xl: 2.5rem;
+  --font-size-3xl: 3.5rem;
+  --line-height-tight: 1.2;
+  --line-height-base: 1.6;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 24px rgba(255, 212, 0, 0.35);
+}
