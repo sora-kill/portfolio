@@ -74,8 +74,8 @@ portfolio/
 - **Xong khi:** repo trên GitHub có CLAUDE.md và PROGRESS.md.
 
 ### Phase 1 — Đưa site hiện tại vào cấu trúc
-- [ ] **P1.1** Chuyển `index.html` → `src/index.html`, `style.css` → `src/css/style.css`, `script.js` → `src/js/main.js`. Lệnh: `Move-Item <đường-dẫn-cũ>\index.html src\index.html` (tương tự `style.css` → `src\css\style.css`, `script.js` → `src\js\main.js`). Sửa đường dẫn `<link>`/`<script>` (script dùng `type="module"`). Commit `refactor: move site into src/`.
-- [ ] **P1.2** Tạo `src/css/tokens.css`: khai báo trong `:root` toàn bộ màu (`--color-bg`, `--color-text`, `--color-accent: #0057FF`...), spacing (`--space-1..8`), font (`--font-sans: 'Noto Sans JP', sans-serif`), radius, shadow. Trong `style.css` thay mọi giá trị hardcode bằng `var(--...)`. Thêm `<link>` tokens.css TRƯỚC style.css.
+- [x] **P1.1** Chuyển `index.html` → `src/index.html`, `style.css` → `src/css/style.css`, `script.js` → `src/js/main.js`. Lệnh: `Move-Item <đường-dẫn-cũ>\index.html src\index.html` (tương tự `style.css` → `src\css\style.css`, `script.js` → `src\js\main.js`). Sửa đường dẫn `<link>`/`<script>` (script dùng `type="module"`). Commit `refactor: move site into src/`.
+- [x] **P1.2** Tạo `src/css/tokens.css`: khai báo trong `:root` toàn bộ màu (`--color-bg`, `--color-text`, `--color-accent: #FFD400`...), spacing (`--space-1..8`), font (`--font-sans: 'Roboto', 'Noto Sans JP', sans-serif`), radius, shadow. Trong `style.css` thay mọi giá trị hardcode bằng `var(--...)`. Thêm `<link>` tokens.css TRƯỚC style.css.
 - [ ] **P1.3** Rà class theo BEM (`block__element--modifier`). Nếu `style.css` >300 dòng, tách theo section.
 - [ ] **P1.4** i18n:
   - Tạo `src/i18n/en.json`, `ja.json` (cấu trúc lồng: `hero.title`, `nav.about`...).
