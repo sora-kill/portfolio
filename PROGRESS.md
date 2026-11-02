@@ -21,7 +21,8 @@
 - Favicon: Console báo `favicon.ico` 404. Làm ở P1.6 (ảnh hưởng Lighthouse Best Practices).
 
 ## Blocker / câu hỏi mở
-- Không có. (Nội dung thật cho từng section hỏi khi viết: vai trò, câu giới thiệu, CTA, email, link GitHub, CV, mô tả dự án.)
+- Chờ Thanh duyệt bản nháp nội dung Hero (xem "Việc đầu tiên của phiên sau"). Cần xác nhận 2 điểm: (1) giữ hay bỏ câu nêu quốc tịch và việc học ở Nhật trong phần giới thiệu; (2) giữ hay bỏ dòng trạng thái "Open to frontend roles...".
+- Nội dung thật cho các section sau hỏi khi viết: About, AI Workflow, Projects, Skills, email, link GitHub, CV, mô tả dự án.
 
 ## Quyết định đã chốt (không bàn lại)
 - Tài khoản GitHub chính: sora-kill.
@@ -46,10 +47,21 @@
 - Task đang mở: -
 
 ## Tóm tắt phiên gần nhất (≤5 dòng)
-- Xong P1.4a: i18n (en/ja) + Header, sửa base styles và dùng token. Đồng bộ roadmap CLAUDE.md §5 (P1.3/P1.5 gộp vào P1.4a–g, P1.7). Xác nhận cảnh báo CSP/eval là nhiễu extension. Chưa viết nội dung section nào.
+- P1.4a đã chốt và push (commit `7c18ae6`: PROGRESS + đồng bộ roadmap CLAUDE.md §5).
+- Đã đề xuất bản nháp nội dung Hero EN/JP, chưa được duyệt, chưa viết code P1.4b.
+- Phiên kết thúc để chuẩn bị phiên mới.
 
 ## Việc đầu tiên của phiên sau
-- P1.4b: Hero. Hỏi nội dung trước khi viết: dòng vai trò, câu giới thiệu 1–2 câu, các nút CTA (nhãn + đích). Tạo `src/css/hero.css` (BEM `hero`), thêm khóa `hero.*` vào `en.json` và `ja.json`, thêm section vào `index.html` dưới Header. Sau đó About, AI Workflow, Projects, Skills, Contact (mỗi cái một bước), rồi P1.6 favicon, P1.7 rà cuối.
+- P1.4b: Hero. Bước 1: hỏi Thanh duyệt/sửa bản nháp dưới đây (và 2 điểm ở "Blocker"). Bước 2 (sau khi duyệt): tạo `src/css/hero.css` (BEM `hero`, chỉ dùng token), thêm khóa `hero.*` vào `en.json` và `ja.json`, thêm section vào `index.html` dưới Header (`<main>`), link `hero.css` sau `header.css`. Bằng chứng: ảnh EN/JP × 1440/375, Console không lỗi, `Select-String` hex/`style=`/`!important` không in gì, commit.
+- Bản nháp Hero (CHƯA duyệt):
+  - Vai trò: EN "Frontend Developer" / JP "フロントエンド開発者"
+  - h1: EN "Building web UIs with AI agents, one verified step at a time." / JP "AIエージェントと、検証しながら一歩ずつWeb UIをつくる。"
+  - Giới thiệu EN: "Vietnamese student in Japan studying frontend development and UI/UX. I work with vibe coding and AI agents through a controlled workflow, with every change backed by evidence in the commit history."
+  - Giới thiệu JP: "日本の専門学校でフロントエンド開発とUI/UXを学んでいるベトナム出身の学生です。バイブコーディングとAIエージェントを管理されたワークフローで活用し、すべての変更をコミット履歴で裏付けています。"
+  - Dòng trạng thái: EN "Open to frontend roles at Japanese companies" / JP "日本企業のフロントエンド職を探しています"
+  - CTA chính (nền vàng, chữ `--color-on-accent`): EN "View AI Workflow" / JP "AIワークフローを見る" → `#workflow`
+  - CTA phụ (viền): EN "Contact" / JP "お問い合わせ" → `#contact`
+- Sau Hero: About, AI Workflow, Projects, Skills, Contact (mỗi cái một bước), rồi P1.6 favicon, P1.7 rà cuối.
 
 ## Ghi chú cho docs/interventions.md (P5.4)
 - PowerShell chặn `npm.ps1`: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`.
