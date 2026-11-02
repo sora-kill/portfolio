@@ -76,13 +76,18 @@ portfolio/
 ### Phase 1 — Đưa site hiện tại vào cấu trúc
 - [x] **P1.1** Chuyển `index.html` → `src/index.html`, `style.css` → `src/css/style.css`, `script.js` → `src/js/main.js`. Lệnh: `Move-Item <đường-dẫn-cũ>\index.html src\index.html` (tương tự `style.css` → `src\css\style.css`, `script.js` → `src\js\main.js`). Sửa đường dẫn `<link>`/`<script>` (script dùng `type="module"`). Commit `refactor: move site into src/`.
 - [x] **P1.2** Tạo `src/css/tokens.css`: khai báo trong `:root` toàn bộ màu (`--color-bg`, `--color-text`, `--color-accent: #FFD400`...), spacing (`--space-1..8`), font (`--font-sans: 'Roboto', 'Noto Sans JP', sans-serif`), radius, shadow. Trong `style.css` thay mọi giá trị hardcode bằng `var(--...)`. Thêm `<link>` tokens.css TRƯỚC style.css.
-- [ ] **P1.3** Rà class theo BEM (`block__element--modifier`). Nếu `style.css` >300 dòng, tách theo section.
-- [ ] **P1.4** i18n:
-  - Tạo `src/i18n/en.json`, `ja.json` (cấu trúc lồng: `hero.title`, `nav.about`...).
-  - HTML: mỗi chữ hiển thị gắn `data-i18n="hero.title"`. Nút đổi ngôn ngữ có thuộc tính `data-lang-toggle`.
-  - `src/js/i18n.js`: dùng `fetch('./i18n/${lang}.json')`, áp text vào `[data-i18n]`, set `document.documentElement.lang`, lưu `localStorage` key `lang`, mặc định `en`.
+- [x] **P1.1b** Bỏ nội dung mira cũ, `src/` chỉ còn khung.
+- [x] **P1.2b** Nạp Roboto + Noto Sans JP qua Google Fonts CDN trong `index.html` (preconnect, display=swap, wght 400/500/700).
+- [x] **P1.4a** Nền tảng i18n + Header (commit `0a3de4c`, `e8a238e`):
+  - `src/i18n/en.json`, `ja.json` (cấu trúc lồng: `meta.*`, `nav.*`...).
+  - HTML: mỗi chữ hiển thị gắn `data-i18n="nav.about"` (thêm `data-i18n-label` cho aria-label, `data-i18n-content` cho meta). Nút đổi ngôn ngữ có `data-lang-toggle`.
+  - `src/js/i18n.js`: `fetch('./i18n/${lang}.json')`, áp text vào `[data-i18n]`, set `document.documentElement.lang`, lưu `localStorage` key `lang`, mặc định `en`.
   - `src/js/main.js`: chỉ khởi tạo (import i18n, gắn sự kiện).
-- [ ] **P1.5** Điền thật các placeholder: GitHub username, email, CV link, AnimeSky demo URL. Không để `TODO`.
+  - Header: brand + nav 5 mục + nút EN/JP; CSS BEM trong `src/css/header.css`.
+- [ ] **P1.4b–g** Mỗi section là MỘT bước riêng, theo thứ tự: Hero (b), About (c), AI Workflow (d), Projects (e), Skills (f), Contact (g). Mỗi bước gồm HTML + khóa i18n `en.json`/`ja.json` + CSS BEM (file riêng, tách khi >300 dòng). Nội dung thật (vai trò, email, GitHub, CV, mô tả dự án, AnimeSky URL) hỏi khi viết từng section, không để `TODO`.
+- [ ] **P1.6** Favicon (sửa `favicon.ico` 404; ảnh hưởng Lighthouse Best Practices).
+- [ ] **P1.7** Rà cuối Phase 1: class đúng BEM, không còn `TODO`/placeholder (`Get-ChildItem src -Recurse -File | Select-String -Pattern "TODO|placeholder"` không ra kết quả).
+- *Ghi chú:* P1.3 và P1.5 cũ đã gộp vào P1.4a–g và P1.7. Trước Phase 3 chưa có `npm run verify`, nên bằng chứng "xong" của Phase 1 là thủ công: Console không lỗi, ảnh trước/sau (desktop + mobile, EN + JP), tiêu chí bước đạt.
 - **Xong khi:** `npx serve src -l 4173` mở được site, đổi EN/JP hoạt động, không lỗi console.
 
 ### Phase 2 — Luật cứng bằng máy
