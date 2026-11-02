@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "ThanhDN | フロントエンド開発者 ・ AIエージェントとバイブコーディング",
+    "description": "AIエージェントとバイブコーディングでWeb UIを開発するフロントエンド開発者。小さな検証済みステップと公開コミット履歴で品質を管理しています。"
+  },
+  "nav": {
+    "brand": "ThanhDN",
+    "label": "メインナビゲーション",
+    "about": "自己紹介",
+    "workflow": "AIワークフロー",
+    "projects": "プロジェクト",
+    "skills": "スキル",
+    "contact": "お問い合わせ",
+    "langSwitch": "EN",
+    "langSwitchLabel": "言語を英語に切り替える"
+  }
+}

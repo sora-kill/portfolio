@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "ThanhDN | Frontend Developer · Vibe Coding with AI Agents",
+    "description": "Frontend developer who builds web UIs through vibe coding and AI agents, working in small, verified steps with a public commit history."
+  },
+  "nav": {
+    "brand": "ThanhDN",
+    "label": "Main navigation",
+    "about": "About",
+    "workflow": "AI Workflow",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "langSwitch": "日本語",
+    "langSwitchLabel": "Switch language to Japanese"
+  }
+}

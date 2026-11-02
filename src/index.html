@@ -3,14 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <meta
+    name="description"
+    content="Frontend developer who builds web UIs through vibe coding and AI agents, working in small, verified steps with a public commit history."
+    data-i18n-content="meta.description"
+  />
+  <title data-i18n="meta.title">ThanhDN | Frontend Developer · Vibe Coding with AI Agents</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css" />
 </head>
-<body>
+<body id="top">
+    <header class="header">
+    <div class="header__inner">
+      <a class="header__brand" href="#top" data-i18n="nav.brand"></a>
+      <nav class="header__nav" data-i18n-label="nav.label">
+        <ul class="header__list">
+          <li class="header__item"><a class="header__link" href="#about" data-i18n="nav.about"></a></li>
+          <li class="header__item"><a class="header__link" href="#workflow" data-i18n="nav.workflow"></a></li>
+          <li class="header__item"><a class="header__link" href="#projects" data-i18n="nav.projects"></a></li>
+          <li class="header__item"><a class="header__link" href="#skills" data-i18n="nav.skills"></a></li>
+          <li class="header__item"><a class="header__link" href="#contact" data-i18n="nav.contact"></a></li>
+        </ul>
+      </nav>
+      <button
+        class="header__lang"
+        type="button"
+        data-lang-toggle
+        data-i18n="nav.langSwitch"
+        data-i18n-label="nav.langSwitchLabel"
+      ></button>
+    </div>
+  </header>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
