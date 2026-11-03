@@ -13,5 +13,12 @@
     "contact": "Contact",
     "langSwitch": "日本語",
     "langSwitchLabel": "Switch language to Japanese"
+  },
+    "hero": {
+    "role": "Frontend Developer",
+    "title": "Building web UIs with AI agents, one verified step at a time.",
+    "intro": "I work with vibe coding and AI agents through a controlled workflow, with every change backed by evidence in the commit history.",
+    "ctaPrimary": "View AI Workflow",
+    "ctaSecondary": "Contact"
   }
 }

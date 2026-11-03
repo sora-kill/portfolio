@@ -15,9 +15,10 @@
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/hero.css">
 </head>
 <body id="top">
-    <header class="header">
+  <header class="header">
     <div class="header__inner">
       <a class="header__brand" href="#top" data-i18n="nav.brand"></a>
       <nav class="header__nav" data-i18n-label="nav.label">
@@ -38,6 +39,25 @@
       ></button>
     </div>
   </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <p class="hero__role" data-i18n="hero.role">Frontend Developer</p>
+        <h1 class="hero__title" id="hero-title" data-i18n="hero.title">
+          Building web UIs with AI agents, one verified step at a time.
+        </h1>
+        <p class="hero__intro" data-i18n="hero.intro">
+          I work with vibe coding and AI agents through a controlled workflow, with every change
+          backed by evidence in the commit history.
+        </p>
+        <div class="hero__actions">
+          <a class="hero__cta hero__cta--primary" href="#workflow" data-i18n="hero.ctaPrimary">View AI Workflow</a>
+          <a class="hero__cta hero__cta--secondary" href="#contact" data-i18n="hero.ctaSecondary">Contact</a>
+        </div>
+      </div>
+    </section>
+  </main>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

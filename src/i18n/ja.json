@@ -13,5 +13,12 @@
     "contact": "お問い合わせ",
     "langSwitch": "EN",
     "langSwitchLabel": "言語を英語に切り替える"
+  },
+  "hero": {
+    "role": "フロントエンド開発者",
+    "title": "AIエージェントと、検証しながら一歩ずつWeb UIをつくる。",
+    "intro": "バイブコーディングとAIエージェントを管理されたワークフローで活用し、すべての変更をコミット履歴で裏付けています。",
+    "ctaPrimary": "AIワークフローを見る",
+    "ctaSecondary": "お問い合わせ"
   }
 }
