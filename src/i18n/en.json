@@ -20,5 +20,12 @@
     "intro": "I work with vibe coding and AI agents through a controlled workflow, with every change backed by evidence in the commit history.",
     "ctaPrimary": "View AI Workflow",
     "ctaSecondary": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "p1": "I am interested in the ever-evolving relationship between humans and artificial intelligence.",
+    "p2": "I do not view AI merely as a tool; rather, I seek to explore how autonomous agents can think, collaborate, and solve problems within larger, more complex systems.",
+    "p3": "My journey is driven by curiosity and a spirit of experimentation—constantly testing, learning from mistakes, and refining my approach to achieve my goals.",
+    "p4": "To me, AI is not just a technology, but a new paradigm for problem-solving—one that unlocks entirely new possibilities."
   }
 }
