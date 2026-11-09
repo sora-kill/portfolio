@@ -27,5 +27,27 @@
     "p2": "I do not view AI merely as a tool; rather, I seek to explore how autonomous agents can think, collaborate, and solve problems within larger, more complex systems.",
     "p3": "My journey is driven by curiosity and a spirit of experimentation—constantly testing, learning from mistakes, and refining my approach to achieve my goals.",
     "p4": "To me, AI is not just a technology, but a new paradigm for problem-solving—one that unlocks entirely new possibilities."
-  }
+  },
+  "workflow": {
+  "title": "AI Workflow",
+  "intro": "Designing intelligent workflows that are reliable, efficient, and scalable.",
+  "objectivesTitle": "Clear Objectives",
+  "objectivesText": "Define goals and expected outcomes.",
+  "decompositionTitle": "Task Decomposition",
+  "decompositionText": "Break complex tasks into manageable steps.",
+  "ioTitle": "Structured I/O",
+  "ioText": "Maintain clear input and output between tasks.",
+  "qualityTitle": "Quality Control",
+  "qualityText": "Validate results at every critical stage.",
+  "errorsTitle": "Error Handling",
+  "errorsText": "Detect, recover, and prevent recurring errors.",
+  "observabilityTitle": "Observability",
+  "observabilityText": "Monitor execution, performance, and failures.",
+  "resourcesTitle": "Resource Optimization",
+  "resourcesText": "Balance accuracy, speed, and cost.",
+  "scalabilityTitle": "Scalability",
+  "scalabilityText": "Build modular workflows that are easy to maintain and extend.",
+  "philosophyLabel": "Core Philosophy",
+  "philosophy": "Build workflows around problems, not the number of AI agents."
+}
 }

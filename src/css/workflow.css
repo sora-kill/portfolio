@@ -1,0 +1,96 @@
+.workflow {
+  padding: var(--space-8) var(--space-4);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.workflow__inner {
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+.workflow__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  word-break: auto-phrase;
+}
+
+.workflow__intro {
+  max-width: 60ch;
+  margin: 0 0 var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+  word-break: auto-phrase;
+}
+
+.workflow__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-7);
+  padding: 0;
+  list-style: none;
+}
+
+.workflow__card {
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: var(--space-1) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.workflow__card-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  word-break: auto-phrase;
+}
+
+.workflow__card-text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+  word-break: auto-phrase;
+}
+
+.workflow__philosophy {
+  padding-left: var(--space-4);
+  border-left: var(--space-1) solid var(--color-accent);
+}
+
+.workflow__philosophy-label {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.workflow__quote {
+  max-width: 40ch;
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  word-break: auto-phrase;
+}
+
+@media (min-width: 48rem) {
+  .workflow__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .workflow__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .workflow__quote {
+    font-size: var(--font-size-2xl);
+  }
+}
