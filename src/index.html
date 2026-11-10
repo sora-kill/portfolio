@@ -1,45 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
     content="Frontend developer who builds web UIs through vibe coding and AI agents, working in small, verified steps with a public commit history."
-    data-i18n-content="meta.description"
-  />
-  <title data-i18n="meta.title">ThanhDN | Frontend Developer · Vibe Coding with AI Agents</title>
+    data-i18n-content="meta.description" />
+  <title data-i18n="meta.title">
+    ThanhDN | Frontend Developer · Vibe Coding with AI Agents
+  </title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/hero.css" />
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/workflow.css" />
-
+  <link rel="stylesheet" href="css/projects.css" />
 </head>
+
 <body id="top">
   <header class="header">
     <div class="header__inner">
       <a class="header__brand" href="#top" data-i18n="nav.brand"></a>
       <nav class="header__nav" data-i18n-label="nav.label">
         <ul class="header__list">
-          <li class="header__item"><a class="header__link" href="#about" data-i18n="nav.about"></a></li>
-          <li class="header__item"><a class="header__link" href="#workflow" data-i18n="nav.workflow"></a></li>
-          <li class="header__item"><a class="header__link" href="#projects" data-i18n="nav.projects"></a></li>
-          <li class="header__item"><a class="header__link" href="#skills" data-i18n="nav.skills"></a></li>
-          <li class="header__item"><a class="header__link" href="#contact" data-i18n="nav.contact"></a></li>
+          <li class="header__item">
+            <a class="header__link" href="#about" data-i18n="nav.about"></a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#workflow" data-i18n="nav.workflow"></a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#projects" data-i18n="nav.projects"></a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#skills" data-i18n="nav.skills"></a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="#contact" data-i18n="nav.contact"></a>
+          </li>
         </ul>
       </nav>
-      <button
-        class="header__lang"
-        type="button"
-        data-lang-toggle
-        data-i18n="nav.langSwitch"
-        data-i18n-label="nav.langSwitchLabel"
-      ></button>
+      <button class="header__lang" type="button" data-lang-toggle data-i18n="nav.langSwitch"
+        data-i18n-label="nav.langSwitchLabel"></button>
     </div>
   </header>
 
@@ -51,8 +60,8 @@
           Building web UIs with AI agents, one verified step at a time.
         </h1>
         <p class="hero__intro" data-i18n="hero.intro">
-          I work with vibe coding and AI agents through a controlled workflow, with every change
-          backed by evidence in the commit history.
+          I work with vibe coding and AI agents through a controlled workflow,
+          with every change backed by evidence in the commit history.
         </p>
         <div class="hero__actions">
           <a class="hero__cta hero__cta--primary" href="#workflow" data-i18n="hero.ctaPrimary">View AI Workflow</a>
@@ -63,71 +72,143 @@
 
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="about__inner">
-        <h2 class="about__title" id="about-title" data-i18n="about.title">About Me</h2>
+        <h2 class="about__title" id="about-title" data-i18n="about.title">
+          About Me
+        </h2>
         <p class="about__text" data-i18n="about.p1">
-          I am interested in the ever-evolving relationship between humans and artificial intelligence.
+          I am interested in the ever-evolving relationship between humans and
+          artificial intelligence.
         </p>
         <p class="about__text" data-i18n="about.p2">
-          I do not view AI merely as a tool; rather, I seek to explore how autonomous agents can think, collaborate, and solve problems within larger, more complex systems.
+          I do not view AI merely as a tool; rather, I seek to explore how
+          autonomous agents can think, collaborate, and solve problems within
+          larger, more complex systems.
         </p>
         <p class="about__text" data-i18n="about.p3">
-          My journey is driven by curiosity and a spirit of experimentation—constantly testing, learning from mistakes, and refining my approach to achieve my goals.
+          My journey is driven by curiosity and a spirit of
+          experimentation—constantly testing, learning from mistakes, and
+          refining my approach to achieve my goals.
         </p>
         <p class="about__text" data-i18n="about.p4">
-          To me, AI is not just a technology, but a new paradigm for problem-solving—one that unlocks entirely new possibilities.
+          To me, AI is not just a technology, but a new paradigm for
+          problem-solving—one that unlocks entirely new possibilities.
         </p>
       </div>
     </section>
 
     <section class="workflow" id="workflow" aria-labelledby="workflow-title">
-  <div class="workflow__inner">
-    <h2 class="workflow__title" id="workflow-title" data-i18n="workflow.title">AI Workflow</h2>
-    <p class="workflow__intro" data-i18n="workflow.intro">
-      Designing intelligent workflows that are reliable, efficient, and scalable.
-    </p>
-    <ul class="workflow__grid">
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.objectivesTitle">Clear Objectives</h3>
-        <p class="workflow__card-text" data-i18n="workflow.objectivesText">Define goals and expected outcomes.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.decompositionTitle">Task Decomposition</h3>
-        <p class="workflow__card-text" data-i18n="workflow.decompositionText">Break complex tasks into manageable steps.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.ioTitle">Structured I/O</h3>
-        <p class="workflow__card-text" data-i18n="workflow.ioText">Maintain clear input and output between tasks.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.qualityTitle">Quality Control</h3>
-        <p class="workflow__card-text" data-i18n="workflow.qualityText">Validate results at every critical stage.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.errorsTitle">Error Handling</h3>
-        <p class="workflow__card-text" data-i18n="workflow.errorsText">Detect, recover, and prevent recurring errors.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.observabilityTitle">Observability</h3>
-        <p class="workflow__card-text" data-i18n="workflow.observabilityText">Monitor execution, performance, and failures.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.resourcesTitle">Resource Optimization</h3>
-        <p class="workflow__card-text" data-i18n="workflow.resourcesText">Balance accuracy, speed, and cost.</p>
-      </li>
-      <li class="workflow__card">
-        <h3 class="workflow__card-title" data-i18n="workflow.scalabilityTitle">Scalability</h3>
-        <p class="workflow__card-text" data-i18n="workflow.scalabilityText">Build modular workflows that are easy to maintain and extend.</p>
-      </li>
-    </ul>
-    <div class="workflow__philosophy">
-      <p class="workflow__philosophy-label" data-i18n="workflow.philosophyLabel">Core Philosophy</p>
-      <blockquote class="workflow__quote" data-i18n="workflow.philosophy">
-        Build workflows around problems, not the number of AI agents.
-      </blockquote>
-    </div>
-  </div>
-</section>
+      <div class="workflow__inner">
+        <h2 class="workflow__title" id="workflow-title" data-i18n="workflow.title">
+          AI Workflow
+        </h2>
+        <p class="workflow__intro" data-i18n="workflow.intro">
+          Designing intelligent workflows that are reliable, efficient, and
+          scalable.
+        </p>
+        <ul class="workflow__grid">
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.objectivesTitle">
+              Clear Objectives
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.objectivesText">
+              Define goals and expected outcomes.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.decompositionTitle">
+              Task Decomposition
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.decompositionText">
+              Break complex tasks into manageable steps.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.ioTitle">
+              Structured I/O
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.ioText">
+              Maintain clear input and output between tasks.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.qualityTitle">
+              Quality Control
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.qualityText">
+              Validate results at every critical stage.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.errorsTitle">
+              Error Handling
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.errorsText">
+              Detect, recover, and prevent recurring errors.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.observabilityTitle">
+              Observability
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.observabilityText">
+              Monitor execution, performance, and failures.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.resourcesTitle">
+              Resource Optimization
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.resourcesText">
+              Balance accuracy, speed, and cost.
+            </p>
+          </li>
+          <li class="workflow__card">
+            <h3 class="workflow__card-title" data-i18n="workflow.scalabilityTitle">
+              Scalability
+            </h3>
+            <p class="workflow__card-text" data-i18n="workflow.scalabilityText">
+              Build modular workflows that are easy to maintain and extend.
+            </p>
+          </li>
+        </ul>
+        <div class="workflow__philosophy">
+          <p class="workflow__philosophy-label" data-i18n="workflow.philosophyLabel">
+            Core Philosophy
+          </p>
+          <blockquote class="workflow__quote" data-i18n="workflow.philosophy">
+            Build workflows around problems, not the number of AI agents.
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="projects__inner">
+        <h2 class="projects__title" id="projects-title" data-i18n="projects.title">
+          Projects
+        </h2>
+        <ul class="projects__grid">
+          <li class="projects__card">
+            <h3 class="projects__card-title" data-i18n="projects.animeskyName">
+              AnimeSky Shop
+            </h3>
+            <p class="projects__status" data-i18n="projects.status">
+              In development
+            </p>
+          </li>
+          <li class="projects__card">
+            <h3 class="projects__card-title" data-i18n="projects.portfolioName">
+              Portfolio
+            </h3>
+            <p class="projects__status" data-i18n="projects.status">
+              In development
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
   </main>
   <script type="module" src="js/main.js"></script>
 </body>
+
 </html>

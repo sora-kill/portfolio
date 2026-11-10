@@ -49,5 +49,11 @@
   "scalabilityText": "Build modular workflows that are easy to maintain and extend.",
   "philosophyLabel": "Core Philosophy",
   "philosophy": "Build workflows around problems, not the number of AI agents."
+},
+"projects": {
+  "title": "Projects",
+  "animeskyName": "AnimeSky Shop",
+  "portfolioName": "Portfolio",
+  "status": "In development"
 }
 }

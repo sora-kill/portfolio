@@ -49,5 +49,11 @@
     "scalabilityText": "保守・拡張しやすいモジュール型のワークフローを構築します。",
     "philosophyLabel": "基本理念",
     "philosophy": "AIエージェントの数ではなく、課題を軸にワークフローを設計する。"
-  }
+  },
+  "projects": {
+  "title": "プロジェクト",
+  "animeskyName": "AnimeSky Shop",
+  "portfolioName": "ポートフォリオ",
+  "status": "開発中"
+}
 }
