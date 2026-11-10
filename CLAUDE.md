@@ -84,7 +84,7 @@ portfolio/
   - `src/js/i18n.js`: `fetch('./i18n/${lang}.json')`, áp text vào `[data-i18n]`, set `document.documentElement.lang`, lưu `localStorage` key `lang`, mặc định `en`.
   - `src/js/main.js`: chỉ khởi tạo (import i18n, gắn sự kiện).
   - Header: brand + nav 5 mục + nút EN/JP; CSS BEM trong `src/css/header.css`.
-- [ ] **P1.4b–g** (b, c, d XONG: Hero, About, AI Workflow; còn e–g) Mỗi section là MỘT bước riêng, theo thứ tự: Hero (b), About (c), AI Workflow (d), Projects (e), Skills (f), Contact (g). Mỗi bước gồm HTML + khóa i18n `en.json`/`ja.json` + CSS BEM (file riêng, tách khi >300 dòng). Nội dung thật (vai trò, email, GitHub, CV, mô tả dự án, AnimeSky URL) hỏi khi viết từng section, không để `TODO`.
+- [ ] **P1.4b–g** (b, c, d, e XONG: Hero, About, AI Workflow, Projects; còn f–g) Mỗi section là MỘT bước riêng, theo thứ tự: Hero (b), About (c), AI Workflow (d), Projects (e), Skills (f), Contact (g). Mỗi bước gồm HTML + khóa i18n `en.json`/`ja.json` + CSS BEM (file riêng, tách khi >300 dòng). Nội dung thật (vai trò, email, GitHub, CV, mô tả dự án, AnimeSky URL) hỏi khi viết từng section, không để `TODO`.
 - [ ] **P1.6** Favicon (sửa `favicon.ico` 404; ảnh hưởng Lighthouse Best Practices).
 - [ ] **P1.7** Rà cuối Phase 1: class đúng BEM, không còn `TODO`/placeholder (`Get-ChildItem src -Recurse -File | Select-String -Pattern "TODO|placeholder"` không ra kết quả).
 - *Ghi chú:* P1.3 và P1.5 cũ đã gộp vào P1.4a–g và P1.7. Trước Phase 3 chưa có `npm run verify`, nên bằng chứng "xong" của Phase 1 là thủ công: Console không lỗi, ảnh trước/sau (desktop + mobile, EN + JP), tiêu chí bước đạt.
