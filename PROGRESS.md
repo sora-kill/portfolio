@@ -5,8 +5,8 @@
 
 ## Vị trí hiện tại
 - Phase: 1 (đưa site vào cấu trúc)
-- Bước đang làm: P1.4e XONG. Chưa bắt đầu bước mới.
-- Bước kế tiếp: P1.4f — Skills (xem "Việc đầu tiên của phiên sau").
+- Bước đang làm: P1.4f XONG. Chưa bắt đầu bước mới.
+- Bước kế tiếp: P1.4g — Contact (cần email, link GitHub, link CV từ Thanh).
 
 ## Đã xong (kèm bằng chứng)
 - P0.1–P0.6: repo `https://github.com/sora-kill/portfolio`, `main` đã push.
@@ -24,6 +24,8 @@
   - Bằng chứng (kiểm bằng Playwright MCP, 2026-11-09): ảnh EN/JP × 1440/375 đúng (1440px lưới 2×4, 375px 1 cột, không tràn ngang); `workflow.css` và `en.json` 200, `ja.json` parse được; khóa `workflow.*` EN/JP khớp 100%; trên `workflow.css` không hex/`!important`, trang không có `style=`, class đều đúng BEM; lần tải sạch Console 0 lỗi.
 - P1.4e: Projects. `src/css/projects.css`, khóa `projects.*` (4 khóa) trong `en.json`/`ja.json`, section Projects trong `index.html` (sau AI Workflow), link `projects.css` sau `workflow.css`. Commit `277c835` `feat: add projects section`.
   - Bằng chứng (Playwright MCP, không chụp ảnh, 2026-11-10): EN/JP × 1440/375 đúng số liệu (1440px lưới 2 cột 504px, 375px 1 cột 328px, không tràn ngang, tiêu đề 1 dòng); nhãn EN "In development", JP 開発中; khóa `projects.*` EN/JP khớp; `projects.css` không hex/`!important`, trang không có `style=`, class đúng BEM; Console chỉ có `favicon.ico` 404. Thanh đã chạy bộ lệnh `Select-String`/JSON/`Compare-Object` quét toàn bộ `src/css`: đều trống/đạt. Chưa xem ảnh thật của viền nét đứt, độ tương phản thẻ/nền, nhãn trạng thái.
+  - P1.4f: Skills. `src/css/skills.css`, khóa `skills.*` (5 khóa) trong `en.json`/`ja.json`, section Skills trong `index.html` (sau Projects), link `skills.css` sau `projects.css`. Commit `feat: add skills section` (xem `git log`).
+  - Bằng chứng (ảnh Thanh chụp, 2026-11-11): EN/JP × 1440/375 đúng (chip HTML, CSS, VS Code, Git, không tràn ngang); tiêu đề khớp Projects sau khi thêm `@media (min-width: 48rem)` cỡ `--font-size-3xl`; 7 lệnh kiểm quy ước trống/đạt; Console chỉ còn cảnh báo từ extension.
 
 ## Đang dở (kiểm tra ở đầu phiên sau)
 - Favicon: Console báo `favicon.ico` 404 ở lần tải đầu. Làm ở P1.6 (ảnh hưởng Lighthouse Best Practices).
@@ -62,6 +64,7 @@
   - `Select-String -Path src\css\*.css -Pattern '!important'`
   - `Select-String -Path src\index.html -Pattern 'style='`
   - JSON hợp lệ + khóa khớp: `Get-Content src\i18n\en.json -Raw | ConvertFrom-Json | Out-Null` (tương tự `ja.json`), so khóa bằng `Compare-Object` trên `PSObject.Properties.Name` của khối mới.
+  - Skills (đã chốt 2026-11-11): danh sách phẳng 4 chip (HTML, CSS, VS Code, Git), chưa nhóm theo loại, chưa có mức độ; bổ sung sau. Khóa: `skills.title`, `skills.html`, `skills.css`, `skills.vscode`, `skills.git` (JP: スキル, tên công nghệ giữ nguyên). BEM: `skills`, `skills__inner/title/list/item`. Nền `--color-bg`.
 
 ## Trạng thái kiểm chứng gần nhất
 - `npm run verify`: chưa chạy (chưa tồn tại)
@@ -91,3 +94,7 @@
 - Ảnh JP mobile có popup nổi "複雑": nhiều khả năng là tiện ích từ điển/dịch của trình duyệt, không phải code site. Chụp ảnh bằng cửa sổ ẩn danh để tránh.
 - Live Server tải lại trang khi đang gõ dở (`<link href="about.cs">`, JSON chưa đóng) gây 404 và lỗi JSON parse tạm trong Console. Đọc Console sau khi tải lại trang sạch, không đọc log tích lũy cả phiên.
 - Playwright MCP chạy với thư mục làm việc `C:\Windows\System32`: `browser_take_screenshot` có `filename` bị EPERM. Bỏ `filename`, ảnh lưu ở thư mục Temp của MCP. Ảnh chụp element bị header dính che dòng đầu: chụp full-page hoặc cuộn trước nếu cần ảnh bằng chứng đẹp.
+- `skills.css` bản đầu thiếu `@media (min-width: 48rem)` cho tiêu đề nên nhỏ hơn Projects ở 1440px. Bài học: dán cả `@media` của section mẫu khi viết section mới. Nếu lặp lại lần 2, thêm vào mẫu section hoặc stylelint.
+
+## Mẫu cho section mới
+- @media (min-width: 48rem) đặt font-size: var(--font-size-3xl) cho X__title.
