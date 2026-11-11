@@ -55,5 +55,12 @@
   "animeskyName": "AnimeSky Shop",
   "portfolioName": "ポートフォリオ",
   "status": "開発中"
+},
+"skills": {
+  "title": "スキル",
+  "html": "HTML",
+  "css": "CSS",
+  "vscode": "VS Code",
+  "git": "Git"
 }
 }
