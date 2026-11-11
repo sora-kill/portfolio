@@ -1,12 +1,12 @@
 # PROGRESS.md — Trạng thái sống (cập nhật cuối MỖI phiên)
 
-- Cập nhật lần cuối: 2026-11-10
+- Cập nhật lần cuối: 2026-11-11
 - Chế độ vận hành: A (Chat)
 
 ## Vị trí hiện tại
 - Phase: 1 (đưa site vào cấu trúc)
-- Bước đang làm: P1.4f XONG. Chưa bắt đầu bước mới.
-- Bước kế tiếp: P1.4g — Contact (cần email, link GitHub, link CV từ Thanh).
+- Bước đang làm: P1.4g XONG (P1.4b–g xong hết). Chưa bắt đầu bước mới.
+- Bước kế tiếp: P1.6 — Favicon.
 
 ## Đã xong (kèm bằng chứng)
 - P0.1–P0.6: repo `https://github.com/sora-kill/portfolio`, `main` đã push.
@@ -26,6 +26,8 @@
   - Bằng chứng (Playwright MCP, không chụp ảnh, 2026-11-10): EN/JP × 1440/375 đúng số liệu (1440px lưới 2 cột 504px, 375px 1 cột 328px, không tràn ngang, tiêu đề 1 dòng); nhãn EN "In development", JP 開発中; khóa `projects.*` EN/JP khớp; `projects.css` không hex/`!important`, trang không có `style=`, class đúng BEM; Console chỉ có `favicon.ico` 404. Thanh đã chạy bộ lệnh `Select-String`/JSON/`Compare-Object` quét toàn bộ `src/css`: đều trống/đạt. Chưa xem ảnh thật của viền nét đứt, độ tương phản thẻ/nền, nhãn trạng thái.
   - P1.4f: Skills. `src/css/skills.css`, khóa `skills.*` (5 khóa) trong `en.json`/`ja.json`, section Skills trong `index.html` (sau Projects), link `skills.css` sau `projects.css`. Commit `feat: add skills section` (xem `git log`).
   - Bằng chứng (ảnh Thanh chụp, 2026-11-11): EN/JP × 1440/375 đúng (chip HTML, CSS, VS Code, Git, không tràn ngang); tiêu đề khớp Projects sau khi thêm `@media (min-width: 48rem)` cỡ `--font-size-3xl`; 7 lệnh kiểm quy ước trống/đạt; Console chỉ còn cảnh báo từ extension.
+  - P1.4g: Contact. `src/css/contact.css`, khóa `contact.*` (3 khóa) trong `en.json`/`ja.json`, section Contact trong `index.html` (sau Skills), link `contact.css` sau `skills.css`. Commit `feat: add contact section` (xem `git log`).
+  - Bằng chứng (ảnh Thanh chụp, 2026-11-11): EN/JP × 1440/375 đúng, không tràn ngang; 2 liên kết hoạt động (mailto, GitHub mở tab mới); Console sạch (trừ cảnh báo extension); lệnh kiểm quy ước trống/đạt. Lỗi vùng bấm kéo hết chiều ngang đã sửa bằng `align-items: flex-start` ở `.contact__item`.
 
 ## Đang dở (kiểm tra ở đầu phiên sau)
 - Favicon: Console báo `favicon.ico` 404 ở lần tải đầu. Làm ở P1.6 (ảnh hưởng Lighthouse Best Practices).
@@ -65,6 +67,7 @@
   - `Select-String -Path src\index.html -Pattern 'style='`
   - JSON hợp lệ + khóa khớp: `Get-Content src\i18n\en.json -Raw | ConvertFrom-Json | Out-Null` (tương tự `ja.json`), so khóa bằng `Compare-Object` trên `PSObject.Properties.Name` của khối mới.
   - Skills (đã chốt 2026-11-11): danh sách phẳng 4 chip (HTML, CSS, VS Code, Git), chưa nhóm theo loại, chưa có mức độ; bổ sung sau. Khóa: `skills.title`, `skills.html`, `skills.css`, `skills.vscode`, `skills.git` (JP: スキル, tên công nghệ giữ nguyên). BEM: `skills`, `skills__inner/title/list/item`. Nền `--color-bg`.
+  - Contact (đã chốt 2026-11-11): chỉ có tiêu đề + 2 liên kết thật: Email `tdo27999@gmail.com` (`mailto:`) và GitHub `https://github.com/sora-kill` (mở tab mới, `rel="noopener noreferrer"`). Chưa có câu giới thiệu. Nút CV thêm sau thành bước riêng khi có file PDF (khớp P10.7). Địa chỉ email/URL để literal trong HTML, nhãn và tiêu đề qua i18n. Khóa: `contact.title`, `contact.emailLabel`, `contact.githubLabel` (JP: お問い合わせ, メール, GitHub). BEM: `contact`, `contact__inner/title/list/item/label/link`. Nền `--color-surface`.
 
 ## Trạng thái kiểm chứng gần nhất
 - `npm run verify`: chưa chạy (chưa tồn tại)
@@ -79,8 +82,8 @@
 - PROGRESS + CLAUDE.md §5 đã đồng bộ; phiên đóng sau P1.4e.
 
 ## Việc đầu tiên của phiên sau
-- P1.4f: Skills. Bước 1: Thanh cung cấp nội dung thật (danh sách kỹ năng, nhóm theo loại hay không, có hiển thị mức độ không; không đoán, không thêm kỹ năng Thanh chưa nêu). Bước 2 (sau khi duyệt): tạo `src/css/skills.css` (BEM `skills`, chỉ dùng token, `word-break: auto-phrase` ngay từ đầu, nền `--color-bg` xen kẽ vì Projects dùng `--color-surface`), thêm khóa `skills.*` (phẳng 2 cấp) vào `en.json` và `ja.json`, thêm `<section class="skills" id="skills">` trong `<main>` sau Projects, link `skills.css` sau `projects.css`. Bằng chứng: Console không lỗi (trừ favicon), các lệnh kiểm quy ước ở trên trống, Claude kiểm EN/JP × 1440/375 qua Playwright MCP (kèm ảnh nếu Thanh muốn), commit.
-- Sau Skills: Contact (một bước), rồi bổ sung nội dung Projects thật và bằng chứng AI Workflow khi có link repo/commit, chốt `scroll-margin-top`, P1.6 favicon, P1.7 rà cuối (gồm xem ảnh thật các section).
+- P1.6 Favicon, bổ sung nội dung Projects thật, bằng chứng AI Workflow, nút CV (P10.7), chốt scroll-margin-top, P1.7.
+
 
 ## Ghi chú cho docs/interventions.md (P5.4)
 - PowerShell chặn `npm.ps1`: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`.
@@ -95,6 +98,7 @@
 - Live Server tải lại trang khi đang gõ dở (`<link href="about.cs">`, JSON chưa đóng) gây 404 và lỗi JSON parse tạm trong Console. Đọc Console sau khi tải lại trang sạch, không đọc log tích lũy cả phiên.
 - Playwright MCP chạy với thư mục làm việc `C:\Windows\System32`: `browser_take_screenshot` có `filename` bị EPERM. Bỏ `filename`, ảnh lưu ở thư mục Temp của MCP. Ảnh chụp element bị header dính che dòng đầu: chụp full-page hoặc cuộn trước nếu cần ảnh bằng chứng đẹp.
 - `skills.css` bản đầu thiếu `@media (min-width: 48rem)` cho tiêu đề nên nhỏ hơn Projects ở 1440px. Bài học: dán cả `@media` của section mẫu khi viết section mới. Nếu lặp lại lần 2, thêm vào mẫu section hoặc stylelint.
+- `.contact__item` flex cột mặc định `align-items: stretch` làm thẻ `<a>` giãn hết chiều ngang (vùng bấm và viền focus quá rộng). Sửa bằng `align-items: flex-start`. Bài học: khi item flex cột chứa link/nút, đặt `align-items` ngay từ đầu.
 
 ## Mẫu cho section mới
 - @media (min-width: 48rem) đặt font-size: var(--font-size-3xl) cho X__title.
