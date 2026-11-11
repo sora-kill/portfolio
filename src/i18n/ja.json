@@ -62,5 +62,10 @@
   "css": "CSS",
   "vscode": "VS Code",
   "git": "Git"
+},
+"contact": {
+  "title": "お問い合わせ",
+  "emailLabel": "メール",
+  "githubLabel": "GitHub"
 }
 }

@@ -62,5 +62,10 @@
   "css": "CSS",
   "vscode": "VS Code",
   "git": "Git"
+},
+"contact": {
+  "title": "Contact",
+  "emailLabel": "Email",
+  "githubLabel": "GitHub"
 }
 }
