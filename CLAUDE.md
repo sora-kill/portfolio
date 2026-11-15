@@ -86,6 +86,7 @@ portfolio/
   - Header: brand + nav 5 mục + nút EN/JP; CSS BEM trong `src/css/header.css`.
 - [x] **P1.4b–g** (b, c, d, e, f, g XONG: Hero, About, AI Workflow, Projects, Skills, Contact). Mỗi section là MỘT bước riêng, theo thứ tự: Hero (b), About (c), AI Workflow (d), Projects (e), Skills (f), Contact (g). Mỗi bước gồm HTML + khóa i18n `en.json`/`ja.json` + CSS BEM (file riêng, tách khi >300 dòng). Nội dung thật (vai trò, email, GitHub, CV (CV chưa có file, thêm sau (P10.7)), mô tả dự án, AnimeSky URL) hỏi khi viết từng section, không để `TODO`.
 - [x] **P1.6** Favicon (sửa `favicon.ico` 404; ảnh hưởng Lighthouse Best Practices).
+- [x] **P1.6b** Chừa khoảng cuộn dưới header dính: token `--header-height` (`tokens.css`) + `html { scroll-padding-top: var(--header-height); }` (`header.css`).
 - [ ] **P1.7** Rà cuối Phase 1: class đúng BEM, không còn `TODO`/placeholder (`Get-ChildItem src -Recurse -File | Select-String -Pattern "TODO|placeholder"` không ra kết quả).
 - *Ghi chú:* P1.3 và P1.5 cũ đã gộp vào P1.4a–g và P1.7. Trước Phase 3 chưa có `npm run verify`, nên bằng chứng "xong" của Phase 1 là thủ công: Console không lỗi, ảnh trước/sau (desktop + mobile, EN + JP), tiêu chí bước đạt.
 - **Xong khi:** `npx serve src -l 4173` mở được site, đổi EN/JP hoạt động, không lỗi console.

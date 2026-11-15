@@ -5,8 +5,8 @@
 
 ## Vị trí hiện tại
 - Phase: 1 (đưa site vào cấu trúc)
-- Bước đang làm: P1.6 XONG. Chưa bắt đầu bước mới.
-- Bước kế tiếp: P1.7 — Rà cuối Phase 1. Trước đó phải chốt `scroll-margin-top` / token `--header-height` (xem Blocker).
+- Bước đang làm: P1.6b XONG. Chưa bắt đầu bước mới.
+- Bước kế tiếp: P1.7 — Rà cuối Phase 1.
 
 ## Đã xong (kèm bằng chứng)
 - P0.1–P0.6: repo `https://github.com/sora-kill/portfolio`, `main` đã push.
@@ -30,16 +30,16 @@
   - Bằng chứng (ảnh Thanh chụp, 2026-11-11): EN/JP × 1440/375 đúng, không tràn ngang; 2 liên kết hoạt động (mailto, GitHub mở tab mới); Console sạch (trừ cảnh báo extension); lệnh kiểm quy ước trống/đạt. Lỗi vùng bấm kéo hết chiều ngang đã sửa bằng `align-items: flex-start` ở `.contact__item`.
   - P1.6: Favicon. `src/favicon.svg` (nền vàng, chữ T đen), khai báo `<link rel="icon" href="favicon.svg" type="image/svg+xml">` trong `src/index.html`. Commit `feat: add favicon`.
   - Bằng chứng (2026-11-15): màu SVG khớp `tokens.css` (`--color-accent` #ffd400, `--color-on-accent` #111111); Console và Network ổn (cửa sổ ẩn danh); ảnh tab hiện icon; `Select-String` `style=` trống.
+  - P1.6b: Chừa khoảng cuộn dưới header dính. Token `--header-height` trong `src/css/tokens.css` (<768px: `calc(var(--space-2) * 3 + 88px + 1px)`; ≥768px: `calc(var(--space-2) * 2 + 44px + 1px)`) và `html { scroll-padding-top: var(--header-height); }` ở đầu `src/css/header.css`. Commit `fix: offset anchor targets below sticky header`.
+  - Bằng chứng (2026-11-15): header đo được 60.8px (≥768px) và 112.8px (<768px), EN = JP; `scroll-padding-top` tính ra 61px / 113px; ảnh trước/sau ở 375px (tiêu đề Projects từ bị che sang hiện đủ), 375px bấm Contact, 1440px bấm Projects: tiêu đề không bị che; 3 lệnh kiểm quy ước trống.
 
 ## Đang dở (kiểm tra ở đầu phiên sau)
 - Favicon mới chỉ có SVG; chưa có ICO và `apple-touch-icon`. Kiểm trên Safari ở P1.7; thêm ICO/apple-touch-icon khi thật sự cần.
 - Ngắt dòng JP dùng `word-break: auto-phrase`: Chrome/Edge hỗ trợ; Safari/Firefox có thể chưa. Kiểm ở P1.7, quyết định có cần đánh dấu cụm từ trong `ja.json` không.
-- Header dính ở đầu trang (mobile 375px che dòng đầu khi bấm anchor): cần `scroll-margin-top` cho từng section. Giá trị phụ thuộc chiều cao header, chưa có token. Đã hoãn (xem blocker).
 - Câu intro AI Workflow bản JP ở 1440px có dòng cuối chỉ còn "設計します。" (`max-width: 60ch`). Thanh chọn giữ nguyên (2026-11-09).
 - Xem bằng mắt (ảnh thật EN/JP × 1440/375) phần Projects: thẻ nét đứt, nhãn trạng thái. Làm ở P1.7.
 
 ## Blocker / câu hỏi mở
-- `scroll-margin-top` mà không hardcode: Thanh chọn chưa đụng `tokens.css` (2026-11-06), hoãn tới khi xong các section, hỏi lại trước P1.7. Đề xuất vẫn là token `--header-height` (cần Thanh duyệt); header cao khác nhau giữa desktop (1 hàng) và mobile (2 hàng) nên token cần 2 giá trị theo media query, đo bằng DevTools.
 - Link repo/lịch sử commit làm bằng chứng cho AI Workflow: hoãn tới khi có link (Thanh chốt 2026-11-09); thêm sau thành bước riêng.
 - Nội dung thật còn thiếu: Projects (mô tả, công nghệ, link) và nút CV (file PDF, khớp P10.7). Thêm thành bước riêng khi có.
 
@@ -71,6 +71,7 @@
   - Skills (đã chốt 2026-11-11): danh sách phẳng 4 chip (HTML, CSS, VS Code, Git), chưa nhóm theo loại, chưa có mức độ; bổ sung sau. Khóa: `skills.title`, `skills.html`, `skills.css`, `skills.vscode`, `skills.git` (JP: スキル, tên công nghệ giữ nguyên). BEM: `skills`, `skills__inner/title/list/item`. Nền `--color-bg`.
   - Contact (đã chốt 2026-11-11): chỉ có tiêu đề + 2 liên kết thật: Email `tdo27999@gmail.com` (`mailto:`) và GitHub `https://github.com/sora-kill` (mở tab mới, `rel="noopener noreferrer"`). Chưa có câu giới thiệu. Nút CV thêm sau thành bước riêng khi có file PDF (khớp P10.7). Địa chỉ email/URL để literal trong HTML, nhãn và tiêu đề qua i18n. Khóa: `contact.title`, `contact.emailLabel`, `contact.githubLabel` (JP: お問い合わせ, メール, GitHub). BEM: `contact`, `contact__inner/title/list/item/label/link`. Nền `--color-surface`.
   - Favicon (đã chốt 2026-11-15): chỉ `src/favicon.svg`, nền `--color-accent`, chữ T `--color-on-accent`. Hex nằm trong SVG vì SVG favicon không đọc được `var(--...)`, nên phải khớp `tokens.css` khi token đổi. Khai báo bằng đường dẫn tương đối (`favicon.svg`, không dùng `/favicon.svg`: Live Server phục vụ từ gốc repo nên sẽ 404). Chưa làm ICO/apple-touch-icon.
+  - Khoảng cuộn dưới header dính (đã chốt 2026-11-15): một rule `html { scroll-padding-top: var(--header-height) }` trong `header.css`, không dùng `scroll-margin-top` từng section. `--header-height` viết bằng `calc` theo `--space-2` cộng `44px` và `1px` (khớp `header.css`), đổi giá trị ở ngưỡng `768px` giống `header.css`. Hai nguồn sự thật: đổi chiều cao header thì phải đổi token. Đề xuất (chưa duyệt): Phase 3 thêm test Playwright so sánh chiều cao header với `scroll-padding-top`.
 
 ## Trạng thái kiểm chứng gần nhất
 - `npm run verify`: chưa chạy (chưa tồn tại)
@@ -78,13 +79,13 @@
 - Task đang mở: -
 
 ## Tóm tắt phiên gần nhất (≤5 dòng)
-- P1.6 Favicon xong: `src/favicon.svg` + 1 dòng `<link>` trong `index.html`; commit `feat: add favicon`.
-- Chọn chỉ SVG (YAGNI); ICO/apple-touch-icon hoãn, kiểm Safari ở P1.7.
-- Bằng chứng: token khớp, Console/Network ổn, ảnh tab có icon, `style=` trống.
-- `tokens.css` không đổi; `--header-height` vẫn hoãn.
+- P1.6 Favicon xong (`feat: add favicon`): chỉ SVG, ICO/apple-touch-icon hoãn.
+- P1.6b xong (`fix: offset anchor targets below sticky header`): `--header-height` + `scroll-padding-top` trên `html`.
+- Đo thật: header 60.8px / 112.8px, EN = JP; ảnh trước/sau xác nhận tiêu đề không bị che.
+- Blocker `--header-height` đã gỡ; link repo/commit AI Workflow vẫn hoãn.
 
 ## Việc đầu tiên của phiên sau
-- Chốt `scroll-margin-top` / `--header-height` (cần Thanh duyệt đụng `tokens.css`), rồi P1.7. Sau đó: nội dung Projects thật, bằng chứng AI Workflow, nút CV (P10.7).
+- P1.7 rà cuối Phase 1 (gồm kiểm favicon và `auto-phrase` trên Safari/Firefox, xem ảnh thật Projects). Sau đó: nội dung Projects thật, bằng chứng AI Workflow, nút CV (P10.7).
 
 
 ## Ghi chú cho docs/interventions.md (P5.4)
