@@ -1,12 +1,12 @@
 # PROGRESS.md — Trạng thái sống (cập nhật cuối MỖI phiên)
 
-- Cập nhật lần cuối: 2026-11-11
+- Cập nhật lần cuối: 2026-11-15
 - Chế độ vận hành: A (Chat)
 
 ## Vị trí hiện tại
 - Phase: 1 (đưa site vào cấu trúc)
-- Bước đang làm: P1.4g XONG (P1.4b–g xong hết). Chưa bắt đầu bước mới.
-- Bước kế tiếp: P1.6 — Favicon.
+- Bước đang làm: P1.6 XONG. Chưa bắt đầu bước mới.
+- Bước kế tiếp: P1.7 — Rà cuối Phase 1. Trước đó phải chốt `scroll-margin-top` / token `--header-height` (xem Blocker).
 
 ## Đã xong (kèm bằng chứng)
 - P0.1–P0.6: repo `https://github.com/sora-kill/portfolio`, `main` đã push.
@@ -28,9 +28,11 @@
   - Bằng chứng (ảnh Thanh chụp, 2026-11-11): EN/JP × 1440/375 đúng (chip HTML, CSS, VS Code, Git, không tràn ngang); tiêu đề khớp Projects sau khi thêm `@media (min-width: 48rem)` cỡ `--font-size-3xl`; 7 lệnh kiểm quy ước trống/đạt; Console chỉ còn cảnh báo từ extension.
   - P1.4g: Contact. `src/css/contact.css`, khóa `contact.*` (3 khóa) trong `en.json`/`ja.json`, section Contact trong `index.html` (sau Skills), link `contact.css` sau `skills.css`. Commit `feat: add contact section` (xem `git log`).
   - Bằng chứng (ảnh Thanh chụp, 2026-11-11): EN/JP × 1440/375 đúng, không tràn ngang; 2 liên kết hoạt động (mailto, GitHub mở tab mới); Console sạch (trừ cảnh báo extension); lệnh kiểm quy ước trống/đạt. Lỗi vùng bấm kéo hết chiều ngang đã sửa bằng `align-items: flex-start` ở `.contact__item`.
+  - P1.6: Favicon. `src/favicon.svg` (nền vàng, chữ T đen), khai báo `<link rel="icon" href="favicon.svg" type="image/svg+xml">` trong `src/index.html`. Commit `feat: add favicon`.
+  - Bằng chứng (2026-11-15): màu SVG khớp `tokens.css` (`--color-accent` #ffd400, `--color-on-accent` #111111); Console và Network ổn (cửa sổ ẩn danh); ảnh tab hiện icon; `Select-String` `style=` trống.
 
 ## Đang dở (kiểm tra ở đầu phiên sau)
-- Favicon: Console báo `favicon.ico` 404 ở lần tải đầu. Làm ở P1.6 (ảnh hưởng Lighthouse Best Practices).
+- Favicon mới chỉ có SVG; chưa có ICO và `apple-touch-icon`. Kiểm trên Safari ở P1.7; thêm ICO/apple-touch-icon khi thật sự cần.
 - Ngắt dòng JP dùng `word-break: auto-phrase`: Chrome/Edge hỗ trợ; Safari/Firefox có thể chưa. Kiểm ở P1.7, quyết định có cần đánh dấu cụm từ trong `ja.json` không.
 - Header dính ở đầu trang (mobile 375px che dòng đầu khi bấm anchor): cần `scroll-margin-top` cho từng section. Giá trị phụ thuộc chiều cao header, chưa có token. Đã hoãn (xem blocker).
 - Câu intro AI Workflow bản JP ở 1440px có dòng cuối chỉ còn "設計します。" (`max-width: 60ch`). Thanh chọn giữ nguyên (2026-11-09).
@@ -39,7 +41,7 @@
 ## Blocker / câu hỏi mở
 - `scroll-margin-top` mà không hardcode: Thanh chọn chưa đụng `tokens.css` (2026-11-06), hoãn tới khi xong các section, hỏi lại trước P1.7. Đề xuất vẫn là token `--header-height` (cần Thanh duyệt); header cao khác nhau giữa desktop (1 hàng) và mobile (2 hàng) nên token cần 2 giá trị theo media query, đo bằng DevTools.
 - Link repo/lịch sử commit làm bằng chứng cho AI Workflow: hoãn tới khi có link (Thanh chốt 2026-11-09); thêm sau thành bước riêng.
-- Nội dung thật cho các section sau hỏi khi viết: Skills (Thanh cung cấp ở phiên sau), Contact (email, link GitHub, CV). Projects: chờ có dự án thật (mô tả, công nghệ, link) rồi thêm thành bước riêng.
+- Nội dung thật còn thiếu: Projects (mô tả, công nghệ, link) và nút CV (file PDF, khớp P10.7). Thêm thành bước riêng khi có.
 
 ## Quyết định đã chốt (không bàn lại)
 - Tài khoản GitHub chính: sora-kill.
@@ -68,6 +70,7 @@
   - JSON hợp lệ + khóa khớp: `Get-Content src\i18n\en.json -Raw | ConvertFrom-Json | Out-Null` (tương tự `ja.json`), so khóa bằng `Compare-Object` trên `PSObject.Properties.Name` của khối mới.
   - Skills (đã chốt 2026-11-11): danh sách phẳng 4 chip (HTML, CSS, VS Code, Git), chưa nhóm theo loại, chưa có mức độ; bổ sung sau. Khóa: `skills.title`, `skills.html`, `skills.css`, `skills.vscode`, `skills.git` (JP: スキル, tên công nghệ giữ nguyên). BEM: `skills`, `skills__inner/title/list/item`. Nền `--color-bg`.
   - Contact (đã chốt 2026-11-11): chỉ có tiêu đề + 2 liên kết thật: Email `tdo27999@gmail.com` (`mailto:`) và GitHub `https://github.com/sora-kill` (mở tab mới, `rel="noopener noreferrer"`). Chưa có câu giới thiệu. Nút CV thêm sau thành bước riêng khi có file PDF (khớp P10.7). Địa chỉ email/URL để literal trong HTML, nhãn và tiêu đề qua i18n. Khóa: `contact.title`, `contact.emailLabel`, `contact.githubLabel` (JP: お問い合わせ, メール, GitHub). BEM: `contact`, `contact__inner/title/list/item/label/link`. Nền `--color-surface`.
+  - Favicon (đã chốt 2026-11-15): chỉ `src/favicon.svg`, nền `--color-accent`, chữ T `--color-on-accent`. Hex nằm trong SVG vì SVG favicon không đọc được `var(--...)`, nên phải khớp `tokens.css` khi token đổi. Khai báo bằng đường dẫn tương đối (`favicon.svg`, không dùng `/favicon.svg`: Live Server phục vụ từ gốc repo nên sẽ 404). Chưa làm ICO/apple-touch-icon.
 
 ## Trạng thái kiểm chứng gần nhất
 - `npm run verify`: chưa chạy (chưa tồn tại)
@@ -75,14 +78,13 @@
 - Task đang mở: -
 
 ## Tóm tắt phiên gần nhất (≤5 dòng)
-- Commit P1.4d (`2912632`) và P1.4e (`277c835`); Thanh tự chạy bộ lệnh kiểm quy ước, đều đạt.
-- P1.4e Projects: 2 thẻ giữ chỗ (AnimeSky Shop, Portfolio) với nhãn "In development"/開発中, vì chưa có dự án hoàn chỉnh.
-- Playwright MCP kiểm Projects không chụp ảnh (số liệu bố cục, văn bản EN/JP, khóa i18n, Console, Network): đạt.
-- `tokens.css` không đổi; `--header-height` vẫn hoãn; link repo/commit cho AI Workflow vẫn hoãn.
-- PROGRESS + CLAUDE.md §5 đã đồng bộ; phiên đóng sau P1.4e.
+- P1.6 Favicon xong: `src/favicon.svg` + 1 dòng `<link>` trong `index.html`; commit `feat: add favicon`.
+- Chọn chỉ SVG (YAGNI); ICO/apple-touch-icon hoãn, kiểm Safari ở P1.7.
+- Bằng chứng: token khớp, Console/Network ổn, ảnh tab có icon, `style=` trống.
+- `tokens.css` không đổi; `--header-height` vẫn hoãn.
 
 ## Việc đầu tiên của phiên sau
-- P1.6 Favicon, bổ sung nội dung Projects thật, bằng chứng AI Workflow, nút CV (P10.7), chốt scroll-margin-top, P1.7.
+- Chốt `scroll-margin-top` / `--header-height` (cần Thanh duyệt đụng `tokens.css`), rồi P1.7. Sau đó: nội dung Projects thật, bằng chứng AI Workflow, nút CV (P10.7).
 
 
 ## Ghi chú cho docs/interventions.md (P5.4)
