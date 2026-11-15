@@ -53,4 +53,13 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
   --shadow-glow: 0 0 24px rgba(255, 212, 0, 0.35);
+
+  /* Must match the real height of .header (see header.css): 2 rows below 768px */
+  --header-height: calc(var(--space-2) * 3 + 88px + 1px);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: calc(var(--space-2) * 2 + 44px + 1px);
+  }
 }
